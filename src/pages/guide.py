@@ -52,7 +52,7 @@ client = openai.OpenAI(organization=org_key, api_key=api_key)
 assistant = client.beta.assistants.retrieve(assistant_id)
 thread = client.beta.threads.create()
 
-st.title("State Plan Amendment Q&A")
+st.title("State Plan Amendment Q&A", anchor=False)
 st.divider()
 
 # Initialize chat history
