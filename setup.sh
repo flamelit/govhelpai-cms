@@ -14,14 +14,11 @@ mkdir -p /home/streamlit/venv/
 mkdir -p /home/streamlit/app/
 python -m venv /home/streamlit/venv/govhelpai
 
-git clone git@github.com:tom-flamelit/GovHelpAI.git govhelp
+git clone git@github.com:flamelit/GovHelpAI-cms.git govhelp-cms
 
 exit
 
 # Install and set up AWS CLI
-cd /home/streamlit/app
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
 
 su -
 source /home/streamlit/venv/govhelpai/bin/activate

@@ -1,0 +1,10 @@
+credentials:
+  usernames:
+    cms:
+      email: gov_contact@flamelit.tech
+      name: CMS Demo
+      password: $2b$12$nxNls0i5H4CiTmA3je8dWOwRck/kS2WAHujuh7rqb4gYqcA61uNum # To be replaced with hashed password
+cookie:
+  expiry_days: 30
+  key: govhelpcookie # Must be string
+  name: streamlit_gov_cookie

@@ -1,0 +1,33 @@
+[global]
+disableWatchdogWarning = true
+
+[logger]
+level = "info"
+messageFormat = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+[client]
+caching = true
+toolbarMode = "viewer"
+
+[runner]
+installTracer = false
+fixMatplotlib = true
+postScriptGC = true
+fastReruns = true
+
+[server]
+port = 8080
+runOnSave = true
+enableCORS = true
+
+[theme]
+base="dark"
+primaryColor="#026666"
+backgroundColor="#ffffff"
+secondaryBackgroundColor="#fcfcfc"
+textColor="#000000"
+font="sans serif"
+
+[browser]
+gatherUsageStats = false
+serverPort = 8080
