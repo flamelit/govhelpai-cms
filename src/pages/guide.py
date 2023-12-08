@@ -27,7 +27,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-col1, col2 = st.columns(2, gap="large")
+col1, col2, col3 = st.columns(3, gap="large")
 with col1:
     back_button = st.button(
         label="Back to Demo list",
@@ -41,8 +41,16 @@ with col2:
         key="guidereset",
         use_container_width=True,
     )
+with col3:
+    admin_page = st.button(
+        label="Admin Page",
+        key="guideadmin",
+        use_container_width=True,
+    )
 if back_button:
     switch_page("app")
+if admin_page:
+    switch_page("guideadmin")
 if reset_button:
     if "messages" in st.session_state:
         del st.session_state["messages"]
