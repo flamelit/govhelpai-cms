@@ -13,4 +13,3 @@ LLM adoption will improve Government Digital Service speed of delivery.
 
 # Items
 - Assumes: `~/.secrets/openai.json` exists for local secrets
-- Needs access to: `data/prompts.json`
