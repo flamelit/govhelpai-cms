@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit_authenticator as stauth
 import yaml
 from streamlit.logger import get_logger
+from streamlit_extras.card import card
 from streamlit_extras.switch_page_button import switch_page
 from yaml.loader import SafeLoader
 
@@ -119,7 +120,7 @@ authenticator = stauth.Authenticate(
 )
 
 name, authentication_status, username = authenticator.login(
-    'Login to Prototype GovHelp.AI.\nUser: "challenge", Pass: "llmgovhelpai"', "main"
+    'Login to Prototype GovHelp.AI.\nUser: "cms", Pass: "llm"', "main"
 )
 
 if authentication_status is True:
