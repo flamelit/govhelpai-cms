@@ -19,6 +19,7 @@ fastReruns = true
 port = 8080
 runOnSave = true
 enableCORS = true
+enableStaticServing = true
 
 [theme]
 base="dark"

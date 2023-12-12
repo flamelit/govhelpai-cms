@@ -105,10 +105,14 @@ def render_app():
         "Government workforce capabilities.\n\n*Not affiliated with any"
         " Government.\n Application is Prototype.*"
     )
+    st.markdown("Improving speed of " "delivery though Generative AI.")
     st.markdown(
-        "Improving speed of "
-        "delivery though Generative AI."
-        " Made with :heart: and :muscle: by :fire:[Flamelit](https://www.flamelit.tech) and :rocket:[Boostaro](https://www.boostaro.com)!"
+        """Made with :heart: and :muscle: by <br />
+        <a href="https://flamelit.tech"><img src="app/static/flamelit_logo_large.png" alt="image" width="35%" height="auto"></a>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://boostaro.com"><img src="app/static/boostaro_logo.png" alt="image" width="35%" height="auto"></a>
+         """,
+        unsafe_allow_html=True,
     )
 
 
