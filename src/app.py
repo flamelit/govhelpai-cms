@@ -107,7 +107,7 @@ def render_app():
     )
     st.markdown("Improving speed of " "delivery though Generative AI.")
     st.markdown(
-        """Made with :heart: and :muscle: by <br />
+        """Made with :heart: and :muscle: by <br /><br />
         <a href="https://flamelit.tech"><img src="app/static/flamelit_logo_large.png" alt="image" width="35%" height="auto"></a>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="https://boostaro.com"><img src="app/static/boostaro_logo.png" alt="image" width="35%" height="auto"></a>
