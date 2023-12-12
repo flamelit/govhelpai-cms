@@ -16,6 +16,7 @@ log = get_logger(__name__)
 def delete_file(client, assistant_id, file_id):
     with st.spinner("Removing file"):
         client.beta.assistants.files.delete(assistant_id=assistant_id, file_id=file_id)
+        client.files.delete(file_id=file_id)
 
 
 def send_file_to_llm(upload):
@@ -119,7 +120,13 @@ with manager:
     assistant_file_list = client.beta.assistants.files.list(assistant_id=assistant.id)
 
     keep_list = ["cib112321.pdf", "SPA Submission & Processing 2023.pdf"]
-    deletable_files_list = [x for x in assistant_file_list if x not in keep_list]
+    all_files_list = [client.files.retrieve(x.id) for x in assistant_file_list]
+    deletable_files_list = [
+        x.filename for x in all_files_list if x.filename not in keep_list
+    ]
+    deletable_files_dict = {
+        x.id: x.filename for x in all_files_list if x.filename not in keep_list
+    }
 
     for i in keep_list:
         col1, col2 = st.columns(2, gap="large")
@@ -128,48 +135,23 @@ with manager:
         with col2:
             st.button("Remove File", disabled=True, key=i)
 
-    for i in deletable_files_list:
+    for k, v in deletable_files_dict.items():
         col1, col2 = st.columns(2, gap="large")
-        fileinfo = client.files.retrieve(i.id)
+        # fileinfo = client.files.retrieve(i.id)
         with col1:
-            st.write(fileinfo.filename)
+            # st.write(fileinfo.filename)
+            st.write(v)
         with col2:
             st.button(
                 "Remove File",
-                key=i,
+                key=k,
                 on_click=delete_file,
                 kwargs={
                     "client": client,
                     "assistant_id": assistant_id,
-                    "file_id": fileinfo.id,
+                    "file_id": k,
                 },
             )
-    # st.table(keep_list + deletable_files_list)
-
-    # col1, col2, col3 = st.columns([0.1, 0.7, 0.2])
-    # with col1:
-    #     st.markdown("##### ID")
-    # with col2:
-    #     st.markdown("##### Filename")
-    # with col3:
-    #     st.markdown("##### Action")
-    # for x, file_ in enumerate(keep_list + deletable_files_list):
-    #     col1, col2, col3 = st.columns([0.1, 0.7, 0.2])
-    #     col1.write(str(x))
-    #     col2.write(file_)
-    #     button_placeholder = col3.empty()
-    #     if file_ not in keep_list:
-    #         do_delete = button_placeholder.button("Remove", key="delete_" + str(x))
-    #         if do_delete:
-    #             with st.spinner("Remove File"):
-    #                 client.beta.assistants.files.delete(
-    #                     file_id=name_map[file_], assistant_id=assistant.id
-    #                 )
-    #                 st.session_state.file_list.pop(st.session_state.file_list.index(file_))
-    #                 button_placeholder.empty()
-    #     if file_ in keep_list:
-    #         col3.write("Can't Remove")
-
     st.divider()
 
     # for cf in current_file_list:
